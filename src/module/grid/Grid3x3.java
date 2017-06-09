@@ -17,14 +17,4 @@ public class Grid3x3 extends Grid {
 		super.getElements();
 	}
 
-	
-
-	public void getDiagonal(char type, int orientation) {
-
-	}
-
-	public void addElement(String elment) {
-
-	}
-
 }
