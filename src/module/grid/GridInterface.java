@@ -1,8 +1,8 @@
 package module.grid;
 
 public interface GridInterface {
-    public void getLine(int init, int orientation);
-    public void getCollumn(int init, int orientation);
-    public void getDiagonal();
+    public String getLine(int init, int orientation);
+    public String getCollumn(int init, int orientation);
+    public String getDiagonal(int type, int orientation);
     public void getElements();
 }
