@@ -15,25 +15,20 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		scann = new Scanner(System.in);
-
+		
 		// Capturar os caracteres
 		boolean cond = true;
 		while (cond) {
-			System.out.println("Insira uma sequencia de 9 caracteres");
-			String input_elemments = scann.nextLine();
+			String input_elemments = JOptionPane.showInputDialog("Insira uma sequencia de 9 caracters");
 
 			// Verificar a quantidade
 			if (input_elemments.length() == 9) {
-				System.out.println("Tudo certo! Aguarde um momento em quanto convertemos a string");
 
 				String[][] elemments = ParserToGrid.parse(input_elemments, 3);
 
 				// Pedir os commandos ao usuários
-				String commands_input;
-				System.out.println("Insira os comando separados por ;");
-				commands_input = scann.nextLine();
-
+				String commands_input = JOptionPane.showInputDialog("Insira os comando separados por ;");
+			
 				String[] commands = commands_input.split(";");
 
 				/*
@@ -83,13 +78,12 @@ public class Main {
 
 					}
 				}
-				System.out.println("Chave: " + input_elemments);
-				System.out.println("Senha resultante: " + password);
-				System.out.print("Fim do Programa");
+				
+				JOptionPane.showMessageDialog(null, "Chave:\n " + input_elemments + "\n" + "\nSenha resultante:\n " + password);
 				cond = false; // Saida do loop
 
 			} else {
-				System.out.println("Ops! Por favor, insira exatamente 9 caracteres.");
+				JOptionPane.showMessageDialog(null, "Ops! Estamos trabalhando com uma grid 3x3, logo precisamos de 9 caracteres.\n Por favor, insira exatamente 9 caracteres.");
 			}
 			
 		}
