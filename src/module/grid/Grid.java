@@ -7,7 +7,9 @@ public abstract class Grid implements GridInterface {
 
 	public Grid() {
 	}
-
+	
+	
+	
 	public Grid(int rows, int collumns) {
 		this.rows = rows;
 		this.collumns = collumns;
