@@ -12,7 +12,7 @@ public class ParserToPassword3x3 extends ParserToPassword{
 			switch (commands[i]) {
 			case "c1":
 
-				password += grid.getLine(1, 1);
+				password += grid.getCollumn(1, 1);
 
 				break;
 
@@ -25,7 +25,7 @@ public class ParserToPassword3x3 extends ParserToPassword{
 				break;
 
 			case "r1":
-				password += grid.getCollumn(1, 1);
+				password += grid.getLine(1, 1);
 				break;
 
 			case "r2":

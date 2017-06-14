@@ -12,7 +12,7 @@ public class ParserToGrid {
 			
 			elemments[row][collumn] = Character.toString(input_elemments.charAt(i));
 			collumn++;
-			if((i+1)%3 == 0){
+			if((i+1)%dimension == 0){
 				row++;
 				collumn = 0;
 			}
