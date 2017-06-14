@@ -1,9 +1,9 @@
 package app;
 
 import javax.swing.JOptionPane;
+
+import module.grid.FactoryGrid;
 import module.grid.Grid;
-import module.grid.Grid3x3;
-import module.grid.Grid4x4;
 import module.grid.ParserToGrid;
 import module.grid.ParserToPassword3x3;
 import module.grid.ParserToPassword4x4;
@@ -36,10 +36,10 @@ public class Main {
 					if (input_key.length() == 9) {
 
 						String[][] key = ParserToGrid.parse(input_key, 3);
-						Grid grid = new Grid3x3();
+						Grid grid = FactoryGrid.create(3);
 						grid.elements = key;
 						
-						// Pedir os commandos ao usu�rios
+						// Pedir os commandos ao usuários
 						String commands_input = JOptionPane.showInputDialog("Insira os comando separados por ;");
 						String password = ParserToPassword3x3.parse(commands_input, grid);
 						
@@ -60,10 +60,10 @@ public class Main {
 					if (input_key.length() == 16) {
 
 						String[][] key = ParserToGrid.parse(input_key, 4);
-						Grid grid = new Grid4x4();
+						Grid grid = FactoryGrid.create(4);;
 						grid.elements = key;
 						
-						// Pedir os commandos ao usu�rios
+						// Pedir os commandos ao usuários
 						String commands_input = JOptionPane.showInputDialog("Insira os comando separados por ;");
 						String password = ParserToPassword4x4.parse(commands_input, grid);
 						
