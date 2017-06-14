@@ -17,8 +17,8 @@ public class Main {
 		/*Execução de exemplo para a Grid 3x3*/
 		boolean cond = true;
 		while (cond) {
+			
 			String input_key = JOptionPane.showInputDialog("Insira uma sequencia de 9 caracters");
-
 			
 			if (input_key.length() == 9) {
 

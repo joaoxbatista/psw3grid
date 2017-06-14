@@ -3,8 +3,6 @@ package module.grid;
 
 public class Grid3x3 extends Grid {
 	
-	
-	
 	public Grid3x3() {
 		super(3, 3);
 	}
