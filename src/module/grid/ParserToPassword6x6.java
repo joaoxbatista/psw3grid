@@ -1,8 +1,7 @@
 package module.grid;
 
-public class ParserToPassword3x3 extends ParserToPassword{
-
-
+public class ParserToPassword6x6 extends ParserToPassword {
+	
 	public String parse(String commands_input, Grid grid) {
 		String[] commands = commands_input.split(";");
 		
@@ -23,6 +22,20 @@ public class ParserToPassword3x3 extends ParserToPassword{
 			case "c3":
 				password += grid.getCollumn(3, 1);
 				break;
+			
+			case "c4":
+				password += grid.getCollumn(4, 1);
+				break;
+				
+			case "c5":
+				password += grid.getCollumn(5, 1);
+				break;
+				
+			case "c6":
+				password += grid.getCollumn(6, 1);
+				break;
+				
+				
 
 			case "r1":
 				password += grid.getLine(1, 1);
@@ -35,7 +48,21 @@ public class ParserToPassword3x3 extends ParserToPassword{
 			case "r3":
 				password += grid.getLine(3, 1);
 				break;
+				
+			case "r4":
+				password += grid.getLine(4, 1);
+				break;
 
+			case "r5":
+				password += grid.getLine(5, 1);
+				break;
+				
+			case "r6":
+				password += grid.getLine(6, 1);
+				break;
+				
+				
+				
 			case "dp":
 				password += grid.getDiagonal(1, 1);
 				break;
