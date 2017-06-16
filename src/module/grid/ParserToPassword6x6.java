@@ -1,5 +1,8 @@
 package module.grid;
 
+import module.string.EmoticonsEncode;
+import module.string.Encode;
+
 public class ParserToPassword6x6 extends ParserToPassword {
 	
 	public String parse(String commands_input, Grid grid) {
@@ -70,7 +73,11 @@ public class ParserToPassword6x6 extends ParserToPassword {
 			case "ds":
 				password += grid.getDiagonal(2, 1);
 				break;
-
+			
+			case "emoticon":
+				Encode emotion_encoder = new EmoticonsEncode();
+				password = emotion_encoder.encode(password);
+				
 			}
 		}
 		return password;

@@ -1,15 +1,14 @@
 package app;
 
 import javax.swing.JOptionPane;
-import javax.xml.ws.handler.MessageContext;
 
 import module.grid.FactoryGrid;
 import module.grid.FactoryParserToPassword;
 import module.grid.Grid;
 import module.grid.ParserToGrid;
 import module.grid.ParserToPassword;
-import module.grid.ParserToPassword3x3;
-import module.grid.ParserToPassword4x4;
+import module.string.EmoticonsEncode;
+import module.string.Encode;
 
 public class FacadeGrid {
 	
@@ -19,7 +18,7 @@ public class FacadeGrid {
 	static String info = "c[n] = colunas \nr[n] = linhas \ndp = diagonal principal (esquerda para direita) \nds = diagonal secund·ria (direita para esquerda)";
 	
 	
-	/*M√©todo que executa o fluxo principal da aplica√ß√£o*/
+	/*MÈtodo que executa o fluxo principal da aplicaÁ„o*/
 	public static void execute() {
 		
 		boolean cond = true;
@@ -43,12 +42,12 @@ public class FacadeGrid {
 			Grid grid = FactoryGrid.create(dimension);
 			grid.elements = key;
 
-			// Pedir os commandos ao usu√°rios
+			// Pedir os commandos ao usu·rio
 			String commands_input = JOptionPane.showInputDialog("Insira os comando separados por ;");
 			ParserToPassword parser;
 			parser = FactoryParserToPassword.create(dimension);
 			String password = parser.parse(commands_input, grid);
-
+			
 			JOptionPane.showMessageDialog(null,
 					"Chave:\n " + input_key + "\n" + "\nSenha resultante:\n " + password);
 
@@ -58,7 +57,7 @@ public class FacadeGrid {
 		}
 	}
 	
-	/*M√©todo que retona o menu com sua estrutura de decis√£o*/
+	/*MÈtotodo que retona o menu com sua estrutura de decis„o*/
 	public static boolean commands(String opc){
 		boolean cond = true;
 		
@@ -91,7 +90,7 @@ public class FacadeGrid {
 			}
 
 			else {
-				JOptionPane.showMessageDialog(null, "Op√ßao inv√°lida");
+				JOptionPane.showMessageDialog(null, "OpÁ„o inv·lida", "comando inv·lido", JOptionPane.WARNING_MESSAGE);
 			}
 
 		}
