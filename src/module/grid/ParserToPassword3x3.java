@@ -2,6 +2,7 @@ package module.grid;
 
 import module.string.EmoticonsEncode;
 import module.string.Encode;
+import module.string.NumbersEncode;
 
 public class ParserToPassword3x3 extends ParserToPassword{
 
@@ -50,6 +51,10 @@ public class ParserToPassword3x3 extends ParserToPassword{
 			case "emoticon":
 				Encode emotion_encoder = new EmoticonsEncode();
 				password = emotion_encoder.encode(password);
+			
+			case "numbers":
+				Encode numbers_encoder = new NumbersEncode();
+				password = numbers_encoder.encode(password);
 			}
 		}
 		return password;
