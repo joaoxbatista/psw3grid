@@ -1,25 +1,24 @@
 package app;
 
 import javax.swing.JOptionPane;
-import javax.xml.ws.handler.MessageContext;
 
 import module.grid.FactoryGrid;
 import module.grid.FactoryParserToPassword;
 import module.grid.Grid;
 import module.grid.ParserToGrid;
 import module.grid.ParserToPassword;
-import module.grid.ParserToPassword3x3;
-import module.grid.ParserToPassword4x4;
+import module.string.EmoticonsEncode;
+import module.string.Encode;
 
 public class FacadeGrid {
 	
 	/*Mensagens utilizados no menu e nos alertas*/
 	static String mensagem_entrada = "Gerador de Senha Baseado em Grid \n1 - Senha base 3x3 \n2 - Senha base 4x4 \n3 - Senha base 6x6 \n4 - Informações \n5 - Sair";
 	static String mensagem_saida = "Obrigado pela preferência";
-	static String info = "c[n] = colunas \nr[n] = linhas \ndp = diagonal principal (esquerda para direita) \nds = diagonal secundária (direita para esquerda)";
+	static String info = "c[n] = colunas \nr[n] = linhas \ndp = diagonal principal (esquerda para direita) \nds = diagonal secundária (direita para esquerda) \nemoticon = substitui vogais por emoticons \nnumbers = substitui alguns números por outros ";
 	
 	
-	/*MÃ©todo que executa o fluxo principal da aplicaÃ§Ã£o*/
+	/*Método que executa o fluxo principal da aplicação*/
 	public static void execute() {
 		
 		boolean cond = true;
@@ -43,12 +42,12 @@ public class FacadeGrid {
 			Grid grid = FactoryGrid.create(dimension);
 			grid.elements = key;
 
-			// Pedir os commandos ao usuÃ¡rios
+			// Pedir os commandos ao usuário
 			String commands_input = JOptionPane.showInputDialog("Insira os comando separados por ;");
 			ParserToPassword parser;
 			parser = FactoryParserToPassword.create(dimension);
 			String password = parser.parse(commands_input, grid);
-
+			
 			JOptionPane.showMessageDialog(null,
 					"Chave:\n " + input_key + "\n" + "\nSenha resultante:\n " + password);
 
@@ -58,7 +57,7 @@ public class FacadeGrid {
 		}
 	}
 	
-	/*MÃ©todo que retona o menu com sua estrutura de decisÃ£o*/
+	/*Métotodo que retona o menu com sua estrutura de decisão*/
 	public static boolean commands(String opc){
 		boolean cond = true;
 		
@@ -91,7 +90,7 @@ public class FacadeGrid {
 			}
 
 			else {
-				JOptionPane.showMessageDialog(null, "OpÃ§ao invÃ¡lida");
+				JOptionPane.showMessageDialog(null, "Opção inválida", "comando inválido", JOptionPane.WARNING_MESSAGE);
 			}
 
 		}
