@@ -1,14 +1,8 @@
-package app;
+package module.grid;
 
 import javax.swing.JOptionPane;
-
-import module.grid.FactoryGrid;
-import module.grid.FactoryParserToPassword;
-import module.grid.Grid;
-import module.grid.ParserToGrid;
-import module.grid.ParserToPassword;
-import module.string.EmoticonsEncode;
-import module.string.Encode;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class FacadeGrid {
 	
@@ -48,8 +42,16 @@ public class FacadeGrid {
 			parser = FactoryParserToPassword.create(dimension);
 			String password = parser.parse(commands_input, grid);
 			
-			JOptionPane.showMessageDialog(null,
-					"Chave:\n " + input_key + "\n" + "\nSenha resultante:\n " + password);
+			// Criação de um textarea para exibir as informações
+			JTextArea ta = new JTextArea(10, 10);
+            ta.setText("Chave:\n " + input_key + "\n\n" +"Comandos: \n"+commands_input+ "\n\nSenha resultante:\n " + password);
+            ta.setWrapStyleWord(true);
+            ta.setLineWrap(true);
+            ta.setCaretPosition(0);
+            ta.setEditable(false);
+
+            
+            JOptionPane.showMessageDialog(null, new JScrollPane(ta), "PSW3GRID - Senha Gerada", JOptionPane.INFORMATION_MESSAGE);
 
 		} else {
 			JOptionPane.showMessageDialog(null,
